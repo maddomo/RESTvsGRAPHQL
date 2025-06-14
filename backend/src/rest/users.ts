@@ -8,4 +8,9 @@ router.get('/', async (req, res) => {
   res.json(users);
 });
 
+router.get("/posts", async (req, res) => {
+  const posts = await prisma.userPosts.findMany();
+  res.json(posts);
+})
+
 export default router;
